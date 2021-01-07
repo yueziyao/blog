@@ -22,11 +22,15 @@ jobs:
         hexo clean
         hexo g  
 
-    - name: Build and Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      env:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./public
-        PUBLISH_REPOSITORY: yueziyao/yueziyao.github.io # The repository the action should deploy to.
-        BRANCH: master  # The branch the action should deploy to.
-
+    - name: 5. hexo deploy ...
+      run: |
+        mkdir -p ~/.ssh/
+        echo "${{ secrets.GITHUB_ACTION }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        
+        git config --global user.name "yueziyao"
+        git config --global user.email "351599628@qq.com"
+        git config --global core.quotepath false
+        
+        hexo d

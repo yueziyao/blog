@@ -4,7 +4,7 @@
 
 # Site
 title: Alex's Blog
-subtitle: sometimes code， sometimes design
+subtitle: Ten Years, One Dream
 author: Alex
 language: zh
 timezone:
@@ -43,14 +43,11 @@ sidebar-avatar: img/avatar.jpg      # use absolute URL, seeing it's used in both
 # 友情链接
 friends: [
     {
-        title: "10000H",
-        href: "https://www.10000h.top"
+        title: "最关注：奇舞周刊",
+        href: "https://weekly.75.team/"
     },{
-        title: "Xiaotao's Page",
-        href: "https://niexiaotao.com"
-    },{
-        title: "It helps SEO",
-        href: "#"
+        title: "最常用：MDN",
+        href: "https://developer.mozilla.org/"
     }
 ]
 

@@ -1,5 +1,5 @@
 ---
-title: Macos安装nvm 实现nodejs版本快速切换
+title: macOS安装nvm 实现nodejs版本快速切换
 date: 2021-01-10 17:45:10
 tags:
     - nodejs

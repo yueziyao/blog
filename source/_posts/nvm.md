@@ -14,39 +14,49 @@ tags:
 ## 1. 命令行下载及安装
 打开命令行工具，输入以下命令，等待安装成功
 
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
 
 ## 2. shell的配置
 安装完成后，注意区分你的shell是用的zsh和bsah，这里我们不做展开了，感兴趣的可以去看看这两个的区别。
 
 了解自己用的shell后，进行shell的配置如下
 
-	$ cd ~
-	
-	//下边二选一
-	//如果是： zsh
-	$ vim ~/.zshrc
-	
-	//如果是：bash
-	$ vim .bash_profile
+```
+$ cd ~
+
+//下边二选一
+//如果是： zsh
+$ vim ~/.zshrc
+
+//如果是：bash
+$ vim .bash_profile
+```
 
 文件里加入（保存退出是用 `esc` 之后输入 `:wq`）
-	
-	export NVM_DIR=~/.nvm
-	source $(brew --prefix nvm)/nvm.sh
+
+```
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+```
 
 ## 3. 刷新source
 
-	// 也是二选一
-	// zsh
-	$ source ~/.zshrc
-	// bash
-	$ source .bash_profile
+```
+// 也是二选一
+// zsh
+$ source ~/.zshrc
+// bash
+$ source .bash_profile
+```
 
 ## 4. 验证
 
 命令行中，输入
 
-	nvm v
+```
+nvm v
+```
 
 如果正常返回版本号，就ok了！

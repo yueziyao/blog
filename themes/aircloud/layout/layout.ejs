@@ -11,10 +11,6 @@
     </button>
 </div>
 
-<div class="index-about">
-    <i> <%= config.subtitle %> </i>
-</div>
-
 <div class="index-container">
     <% if(!is_current('/404')){%>
     <div class="index-left">
@@ -25,6 +21,10 @@
     </div>
     <% } %>
     <div class="index-middle">
+
+        <div class="index-about">
+            <i> <%= config.subtitle %> </i>
+        </div>
         <!-- Main Content -->
         <%- body %>
     </div>

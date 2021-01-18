@@ -2,8 +2,7 @@
 title: macOS安装nvm 实现nodejs版本快速切换
 date: 2021-01-10 17:45:10
 tags:
-    - nodejs
-    - macOS
+    - 系统
 ---
 
 团队项目新老共存的情况下，某些时候不得不频繁切换nodejs版本。n模块比较难搞，有一些问题，还是推荐使用nvm。

@@ -2,11 +2,10 @@
 title: macOS GitHub访问过慢问题解决
 date: 2021-01-10 17:54:51
 tags:
-    - github
-    - macOS
+    - GitHub
 ---
 
-家里github访问非常缓慢，百度了几个方法，亲测有效。
+家里 GitHub 访问非常缓慢，百度了几个方法，亲测有效。
 
 方法：本地host地址绑定 
 

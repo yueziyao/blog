@@ -2,7 +2,7 @@
 title: macOS Big Sur osx系统引导盘制作
 date: 2021-01-07 17:37:22
 tags:
-    - macOS
+    - 系统
 ---
 > macOS启动优盘制作
 

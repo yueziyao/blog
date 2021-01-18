@@ -12,13 +12,13 @@ tags:
 
 我们先了解以下的一些概念。
 
-## 1. 物理像素 — DP(device pixels)
+## 1. 物理像素 — Device Pixels
 
 显示屏的成像原理：通过一系列的小点排列成一个大的矩形，不同的小点通过显示不同的颜色来显示成图像。
 
 单位pt，属于真正的绝对单位，代表一个像素点。
 
-## 2. 逻辑像素
+## 2. 逻辑像素 - Logical Pixel
 
 逻辑像素也可以称为设备独立像素 DIP(Device independent Pixel)
 
@@ -26,7 +26,7 @@ CSS像素单位是px（CSS pixel），浏览器里的一切长度都是以 px（
 
 > 一般情况下来说， CSS像素 = 独立像素 = 逻辑像素 
 
-## 3. 设备像素比 — DPR(devicePixelRatio)
+## 3. 设备像素比 — Device Pixel Ratio
 
 设备像素比(DPR)是默认缩放为100%的情况下，物理像素和逻辑像素的比值
 
@@ -48,7 +48,7 @@ CSS像素单位是px（CSS pixel），浏览器里的一切长度都是以 px（
 
 所以 IPhoneX 的屏幕比 IPhone7 更高清。
 
-## 4. PPI(pixels per inch)
+## 4. 像素密度 - Pixels Per Inch
 
 每英寸像素取值，更确切的说法应该是像素密度，也就是衡量单位物理面积内拥有像素值的情况。
 

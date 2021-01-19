@@ -132,3 +132,12 @@ deploy:
   repo: git@github.com:yueziyao/yueziyao.github.io.git # 使用仓库的ssh地址
   branch: master
 
+# 谷歌、百度站点地图生成
+Plugins:
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
+
+baidusitemap:
+    path: baidusitemap.xml
+sitemap:
+    path: sitemap.xml

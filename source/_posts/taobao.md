@@ -41,19 +41,28 @@ npm config set registry http://registry.npmjs.org
 
 ## 2. 设置别名
 
-如果你们公司有私有npm仓库，例如nex
-
-同时你也想使用公有registry 例如淘宝 or npm
-
-那么只需要做以下配置
+如果你们公司有，nexus私有npm仓库,你们开发的插件需要存在里边，不推送到公网。那么,可以给你的所有操作，加上 `--registry` 后带仓库地址。
 
 ```
-npm config set registry@alex https://alex.npm.cn
+//登录
+npm login --registry http://nexus.x.x/repository/npm-hosted/
+
+//发布
+npm publish --registry http://nexus.x.x/repository/npm-hosted/
 ```
 
-只要包带 `@alex`的，都会去 `https://alex.npm.cn` 下载
+通常情况下，我们同时也想使用公有淘宝or npm 镜像，可以做以下配置。
 
-## 3. npm安装yarn
+我们的插件以@yzy为组，设置特殊组插件使用私有镜像库。
+
+```
+//设置@yzy组的registry到私有库
+npm config set @yzy:registry http://nexus.x.x/repository/npm-hosted/
+```
+
+只要包带 `@yzy`的，都会去 `http://nexus.x.x/repository/npm-hosted/` 下载
+
+## 3. 通过npm安装yarn
 
 如果npm使用烦了，可以偶尔使用下yarn
 

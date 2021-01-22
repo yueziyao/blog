@@ -4,7 +4,7 @@
 
 # Site
 title: Alex's Blog
-subtitle: Ten Years, One Dream
+subtitle: 既要低头撸码，也要仰望星空！
 author: Alex
 language: zh
 timezone:
@@ -22,8 +22,8 @@ permalink_defaults:
 # 网站综合内容设置：
 SEOTitle: Alex的博客 | Alex's Blog
 email: 351599628@qq.com
-description: "Alex的博客"
-keyword: "前端 博客"
+description: "Alex的博客，记录生活、工作中的点点滴滴，记录代码生涯沿途的风景。"
+keyword: "博客,前端,全栈"
 
 # SNS settings
 # 一些社交平台地址，支持以下几种：
@@ -43,11 +43,16 @@ sidebar-avatar: img/avatar.jpg      # use absolute URL, seeing it's used in both
 # 友情链接
 friends: [
     {
-        title: "最关注：奇舞周刊",
+        title: "奇舞周刊",
         href: "https://weekly.75.team/"
-    },{
-        title: "最常用：MDN",
+    },
+    {
+        title: "MDN",
         href: "https://developer.mozilla.org/"
+    },
+    {
+        title: "CSDN",
+        href: "https://www.csdn.net/"
     }
 ]
 

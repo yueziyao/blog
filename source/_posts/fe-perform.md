@@ -2,12 +2,13 @@
 title: 前端性能衡量标准
 date: 2021-01-28 16:27:23
 tags:
-    - 前端
+    - 前端性能
 ---
 
 谈前端性能方面的指标，可以参考：
 
 * [《以用户为中心的性能指标》-Google推荐](https://web.dev/user-centric-performance-metrics/#user-centric_performance_metrics)
+* [Best Practices for Speeding Up Your Web Site-yahoo](https://developer.yahoo.com/performance/rules.html?guccounter=1#num_http)
 
 可以使用谷歌的performce，来查看性能。
 
@@ -39,4 +40,6 @@ LCP指标代表的是视窗最大可见图片或者文本块的渲染时间。
 * LCP的官方api：https://wicg.github.io/largest-contentful-paint/#sec-largest-contentful-paint-interface
 * 插件：https://github.com/GoogleChrome/web-vitals
 
-待续～～
+## TTI - Time To Interact
+
+TTI指的是页面可交互的时间。

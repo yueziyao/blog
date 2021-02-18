@@ -21,67 +21,83 @@ puppeteer使用cnpm安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-简易demo
+main.ts
 
 ```js
-const puppeteer = require('puppeteer');
+import {performanceTest} from './performanceTest'
 
-// 检测页面url
-const url = 'http://yueziyao.site';
-// 检测次数
-const times = 2;
-const record = [];
+async function main() {
+    // 检测页面url
+    const url = 'https://www.baidu.com';
+    // 检测次数
+    const times = 1;
+    await performanceTest(url, times)
+}
 
-(async () => {
+main()
+```
+
+performanceTest.ts 
+
+```js
+import * as puppeteer from 'puppeteer';
+
+interface Itiming {
+  responseStart: number;
+  navigationStart: number;
+  responseEnd: number;
+  connectEnd: number;
+  connectStart: number;
+  domInteractive: number;
+  fetchStart: number;
+  domainLookupEnd: number;
+  domainLookupStart: number;
+}
+
+export async function performanceTest(url: string, times: number) {
+
+  const record = {
+    whiteScreenTime: 0,
+    requestTime: 0,
+    tcpTime: 0,
+    tti: 0,
+    dnsTime: 0
+  }
+
   for (let i = 0; i < times; i++) {
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
 
     await page.goto(url);
+    const res = JSON.parse(await page.evaluate(
+      () => JSON.stringify(window.performance.timing)
+    ))
+    const timing: Itiming = res;
     // 等待保证页面加载完成
     await page.waitForTimeout(5000);
+    // 白屏时间
+    record.whiteScreenTime += timing.responseStart - timing.navigationStart;
+    // 请求时间
+    record.requestTime += timing.responseEnd - timing.responseStart;
+    // TCP建立连接耗时
+    record.tcpTime += timing.connectEnd - timing.connectStart;
+    // tti
+    record.tti += timing.domInteractive - timing.fetchStart;
+    // DNS
+    record.dnsTime += timing.domainLookupEnd - timing.domainLookupStart || 0;
 
-    // 获取页面的 window.performance 属性
-    const timing = JSON.parse(await page.evaluate(
-      () =>JSON.stringify(window.performance.timing)
-    ));
-    record.push(calculate(timing));
     await browser.close();
   }
-
-  let whiteScreenTime = 0, requestTime = 0, tcpTime=0, tti = 0, dnsTime=0;
-
-  for (let item of record) {
-    whiteScreenTime += item.whiteScreenTime;
-    requestTime += item.requestTime;
-    tcpTime += item.tcpTime;
-    tti += item.tti;
-    dnsTime +=item.dnsTime;
-  }
-	
-  // 检测计算结果
-  const result = [];
-  result.push(url);
-  result.push(`页面平均白屏时间为：${whiteScreenTime / times} ms`);
-  result.push(`页面平均请求时间为：${requestTime / times} ms`);
-  result.push(`TCP建立连接耗时：${tcpTime / times} ms`);
-  result.push(`TTI：${tti / times} ms`);
-  result.push(`DNS查询耗时：${dnsTime / times} ms`);
-  console.log(result);
-
-  function calculate(timing) {
-    const result = {};
-    // 白屏时间
-    result.whiteScreenTime = timing.responseStart - timing.navigationStart;
-    // 请求时间
-    result.requestTime = timing.responseEnd - timing.responseStart;
-    // TCP建立连接耗时
-    result.tcpTime = timing.connectEnd - timing.connectStart;
-    // tti
-    result.tti = timing.domInteractive - timing.fetchStart;
-    // DNS
-    result.dnsTime = timing.domainLookupEnd - timing.domainLookupStart || 0;
-    return result;
-  }
-})();
+  
+  const res = {
+    "DNS请求时间": record.dnsTime / times + 'ms',
+    "TTI": record.tti / times + 'ms',
+    "TCP建立连接耗时": record.dnsTime / times + 'ms',
+    "白屏时间": record.whiteScreenTime / times + 'ms',
+    "请求时间": record.requestTime / times + 'ms'
+  };
+  console.log(res);
+}
 ```
+
+后续可以增加static扫描

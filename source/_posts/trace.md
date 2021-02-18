@@ -2,6 +2,7 @@
 title: chrome tracing
 date: 2021-02-02 22:54:09
 tags:
+    - chrome
 ---
 
 在学习puppeteer写性能爬虫的时候，又发现一个知识点。

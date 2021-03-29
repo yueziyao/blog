@@ -12,7 +12,7 @@ tags:
 
 好的，我们从头开始～
 
-## 1."dependencies"和"devDependencies"
+## 1.“dependencies”和“devDependencies”
 
 通常我们的项目是从一行命令开始的：
 
